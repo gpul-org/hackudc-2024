@@ -7,11 +7,11 @@ export const headerData = {
       href: getPermalink('/')
     },
     {
-      text: 'Servicios',
+      text: '¿Qué es?',
       href: getPermalink('/#')
     },
     {
-      text: 'Sobre mí',
+      text: 'Preguntas frecuentes',
       href: getPermalink('/sobre-mi')
     },
     {
