@@ -8,22 +8,22 @@ export const headerData = {
     },
     {
       text: '¿Qué es?',
-      href: getPermalink('/#')
+      href: getPermalink('#que-es')
     },
     {
-      text: 'Preguntas frecuentes',
-      href: getPermalink('/sobre-mi')
+      text: 'FAQ',
+      href: getPermalink('#faq')
     },
     {
       text: 'Patrocinar',
-      href: getBlogPermalink()
+      href: getBlogPermalink('/patrocinar')
     },
     {
       text: 'Contacto',
       href: getPermalink('/contacto'),
     },
   ],
-  actions: [{ text: 'Registro', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [{ text: 'Registro', href: getPermalink('/registro') }],
 };
 
 export const footerData = {
