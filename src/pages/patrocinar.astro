@@ -1,0 +1,181 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Pricing',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <!-- Pricing Widget ******************* -->
+
+  <Prices
+    title="¿Quieres patrocinar HackUDC?"
+    subtitle="Una oportunidad única para conectar con futuros talentos que son el futuro inmediato del sector tecnológico."
+    prices={[
+      {
+        title: 'Bronce',
+        subtitle: 'Gana visibilidad de marca',
+        price: 250,
+        period: '',
+        items: [
+          {
+            description: 'Logo pequeño en la web',
+          },
+          {
+            description: 'Mención en ceremonias de inauguración y cierre',
+          },
+          {
+            description: 'Presencia en redes sociales',
+          },
+          {
+            description: 'Posibilidad de añadir extras',
+          },
+        ],
+      },
+      {
+        title: 'Plata',
+        subtitle: 'Interacción directa en el evento',
+        price: 800,
+        period: '',
+        items: [
+          {
+            description: 'Todo lo incluido en BRONCE',
+          },
+          {
+            description: 'Logo mediano en web y cartelería',
+          },
+          {
+            description: 'Posibilidad de montar un stand',
+          },
+          {
+            description: '3 pases para el evento (desayunos, comidas, cenas y snacks)',
+          },
+          {
+            description: 'Acceso a los CVs de los participantes',
+          },
+          {
+            description: 'Mailing a los asistentes',
+          },
+          {
+            description: '1h reservada para charla o taller durante el evento',
+          },
+        ],
+      },
+      {
+        title: 'Oro',
+        subtitle: 'Propón tu reto en el hackathon',
+        price: 1500,
+        period: '+ 400 en premios',
+        items: [
+          {
+            description: 'Todo lo incluido en PLATA',
+          },
+          {
+            description: 'Logo grande en web y cartelería',
+          },
+          {
+            description: 'Limitado a 4 sponsors',
+          },
+          {
+            description: 'Presencia en las ceremonias de inauguración y cierre',
+          },
+          {
+            description: 'Propuesta de reto para el hackathon',
+          },
+          {
+            description: 'Selección de proyecto ganador y entrega de premios',
+          },
+        ],
+        hasRibbon: true,
+        ribbonTitle: 'sold out',
+      },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Mejóralo con extras"
+    subtitle="Si quieres más, puedes añadir al pack cualquiera de los siguientes extras para ganar visibilidad."
+    columns={3}
+    items={[
+      {
+        title: 'Espacio comidas: 1000 €',
+        description: 'El espacio dedicado a comidas, desayunos y snacks estará exclusivamente patrocinado por tu empresa.',
+        icon: 'tabler:chef-hat',
+      },
+      {
+        title: 'Botellas de agua: 500 €',
+        description: 'Las botellas repartidas en el pack de bienvenida llevarán tu logo junto al de HackUDC, visible en cada sorbo durante el evento.',
+        icon: 'tabler:bottle',
+      },
+      {
+        title: 'Aftermovie: 1000 €',
+        description: 'Inmortaliza el evento con un aftermovie que capture los mejores momentos. Tu empresa aparecerá como la productora del vídeo.',
+        icon: 'tabler:movie',
+      },
+      {
+        title: 'Sorteo: 200 €',
+        description: 'Aumenta la emoción con un sorteo. Los premios llevarán tu marca, y tú decides la dinámica, siendo el centro de atención en un momento clave.',
+        icon: 'tabler:clover-2',
+      },
+      {
+        title: 'Actividad extra: 200 €',
+        description: 'Añade una dimensión extra al evento con una actividad patrocinada por tu empresa. Por ejemplo, un desafío tecnológico o un divertido descanso.',
+        icon: 'tabler:hexagonal-prism-plus',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="FAQs para patrocinios"
+    subtitle="Aquí respondemos las preguntas frecuentes, si tienes cualquier otra duda contáctanos a través del formulario web o al correo hackudc@gpul.org"
+    columns={1}
+    items={[
+      {
+        title: '¿Los precios incluyen IVA?',
+        description:
+          'No, los precios mostrados son sin IVA.',
+      },
+      {
+        title: '¿Cómo se asignan los patrocinios ORO?',
+        description:
+          "Los patrocinios ORO son exclusivos para 4 empresas, se asignarán por orden de llegada.",
+      },
+      {
+        title: '¿Como se hace el pago?',
+        description:
+          'Desde GPUL, la asociación que organiza el evento, emitiremos una factura a nombre de la empresa que deberá ser abonada por transferencia bancaria antes del evento.',
+      },
+      {
+        title: 'Quiero añadir algo que no exponeis, ¿es posible?',
+        description:
+          'Depende, escríbenos en hackudc@gpul.org y podemos valorarlo.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="sponsor-cta"
+    title="¿A qué esperas?"
+    subtitle="Escríbenos para confirmar el patrocinio o si tienes cualquier duda."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Escríbenos → hackudc@gpul.org',
+        href: 'mailto:hackudc@gpul.org',
+      },
+    ]}
+  />
+</Layout>

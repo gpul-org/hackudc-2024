@@ -144,6 +144,7 @@ export interface Price {
   period?: string;
   items?: Array<Item>;
   callToAction?: CallToAction;
+  isPrimary?: boolean;
   hasRibbon?: boolean;
   ribbonTitle?: string;
 }
@@ -232,8 +233,9 @@ export interface Testimonials extends Headline, Widget {
 }
 
 export interface Brands extends Headline, Widget {
-  icons?: Array<string>;
-  images?: Array<Image>;
+  oro?: Array<Image & { height: number, width: number }>;
+  plata?: Array<Image & { height: number, width: number }>;
+  colaboradores?: Array<Image & { height: number, width: number }>;
 }
 
 export interface Features extends Headline, Widget {

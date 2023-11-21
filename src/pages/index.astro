@@ -3,14 +3,21 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Brands from '~/components/widgets/Brands.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import { getPermalink } from '~/utils/permalinks';
+
+import logoCodee from '~/assets/images/codee.png';
+import logoFIC from '~/assets/images/fic.svg';
+import logoUDC from '~/assets/images/udc.svg';
+import logoAmtega from '~/assets/images/amtega.svg';
+import aitorImage from '~/assets/images/aitor.jpeg';
+import paulaImage from '~/assets/images/paula.jpeg';
+import jorgeImage from '~/assets/images/jorge.jpeg';
 
 ---
 
@@ -25,338 +32,331 @@ import { getPermalink } from '~/utils/permalinks';
         href: getPermalink('/registro'),
         icon: 'tabler:user-scan',
       },
-      { text: 'Saber más', href: '#features' },
+      { text: 'Saber más', href: '#que-es' },
     ]}
-    image={{ src: '~/assets/images/hero.svg', alt: 'HackUDC Logo' }}
+    image={{ src: '~/assets/images/hero.svg', alt: 'HackUDC' }}
   >
     <Fragment slot="title">
-      <span class="hidden sm:inline">La segunda edición del</span><span class="inline sm:hidden">El</span> mayor <span class="text-accent dark:text-white highlight">hackathon estudiantíl</span> en Galicia
+      <span class="hidden sm:inline">La segunda edición del</span><span class="inline sm:hidden">El</span> mayor <span class="text-accent dark:text-white highlight">hackathon estudiantil</span> en Galicia
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">Demuestra tu habilidad, conecta con empresas y desafía tus límites. </span>Con más de 2.000 € en premios y, si estudias en la UDC, puedes llevarte 3 ECTS.
     </Fragment>
   </Hero>
-
+  
   <!-- Features Widget *************** -->
 
   <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022."
+    id="que-es"
+    tagline="Qué es"
+    title="¿Qué es el HackUDC?"
+    subtitle="HackUDC 2024 es la segunda edición del mayor hackathon en Galicia, en donde más de 130 estudiantes se juntan para desarrollar proyectos."
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
+        title: '16, 17 y 18 de febrero',
         description:
           'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+        icon: 'tabler:calendar',
       },
       {
-        title: 'Ready-to-use Components',
+        title: 'Facultad de Informática, UDC',
         description:
           'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+        icon: 'tabler:location',
       },
       {
-        title: 'Best Practices',
+        title: 'Software libre',
         description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
+          'El único requisito para los proyectos es que tienen que ser publicados bajo una licencia de software libre.',
+        icon: 'tabler:license',
       },
       {
-        title: 'Excellent Page Speed',
+        title: 'Retos y 2000 € en premios',
         description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+          'Durante el evento, las empresas patrocinadoras ORO propondrán retos para los proyectos. Cada reto tendrá un premio.',
         icon: 'tabler:rocket',
       },
       {
-        title: 'Search Engine Optimization (SEO)',
+        title: '¡Todo incluido!',
         description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
+          "Los participantes tendrán todo lo que necesiten durante el evento. Comidas, duchas, snacks... Totalmente gratis.",
+        icon: 'tabler:coin',
       },
       {
-        title: 'Open to new ideas and contributions',
+        title: 'Organizado por GPUL',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
+          'GPUL es una asociación universitaria vinculada a la UDC destinada a fomentar el software libre y la cultura libre.',
         icon: 'tabler:bulb',
       },
     ]}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
-    items={[
-      {
-        title: 'Built on top of Astro 3.0',
-        description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
-      },
-      {
-        title: 'Styled using Tailwind CSS',
-        description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
-    }}
   >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-       Gain a competitive advantage by incorporating industry leading practices
-    </Fragment>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</Features>
 
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isAfterContent
-    items={[
-      {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
-      },
-      {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
-      },
-      {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
-      },
-      {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
-      },
-      {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
-      },
-      {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
-    }}
-  >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
-      {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
-      },
-      {
-        title: 'Step 2: <span class="font-medium">Add content</em>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
-      },
-      {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
+<Brands
+title="Patrocinadores & Colaboradores"
+subtitle="El evento no habría sido posible sin la ayuda de las siguientes empresas y entidades:"
+oro={[
+  {
+    src: logoCodee,
+    alt: 'Paypal',
+  },
+  {
+    src: 'https://bizaway.com/wp-content/uploads/2021/09/Logo-Bizaway.svg',
+    alt: 'BizAway',
+  },
+  {
+    src: 'https://www.gradiant.org/wp-content/themes/gradiant/images/Gradiant_logo.png',
+    alt: 'Gradiant',
+  },
+  {
+    src: 'https://www.disashop.com/es/wp-content/uploads/sites/2/2022/10/logo_header_v3.png',
+    alt: 'Disashop',
+  },
+]}
+plata={[
+  {
+    src: 'https://gpul.org/assets/images/logos/logo_gpul.png',
+    alt: 'TBC',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: 'https://gpul.org/assets/images/logos/logo_gpul.png',
+    alt: 'TBC',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: 'https://gpul.org/assets/images/logos/logo_gpul.png',
+    alt: 'TBC',
+    width: 120,
+    height: 120,
+  },
+  {
+    src: 'https://gpul.org/assets/images/logos/logo_gpul.png',
+    alt: 'TBC',
+    width: 120,
+    height: 120,
+  },
+]}
+colaboradores={[
+  {
+    src: logoFIC,
+    alt: 'Facultad de Informática',
+    width: 80,
+    height: 80,
+  },
+  {
+    src: logoUDC,
+    alt: 'Universidade da Coruña',
+    width: 250,
+    height: 250,
+  },
+  {
+    src: logoAmtega,
+    alt: 'Axencia para a modernización tecnolóxia de galicia',
+  },
+]}
+/>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
     stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
+      { title: 'Participantes', amount: '+130' },
+      { title: 'Premios', amount: '2.000 €' },
+      { title: 'Empresas', amount: '10' },
+      { title: 'Proyectos', amount: '~35' },
     ]}
   />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Esto es un hackathon:"
+    items={[
+      {
+        title: 'Paso 1: <span class="font-medium">El equipo</span>',
+        description:
+          "Forma tu equipo, donde cada miembro aporte habilidades únicas para afrontar los desafíos del hackathon.",
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Paso 2: <span class="font-medium">La idea</em>',
+        description:
+          "Inspírate en los retos propuestos por los patrocinadores y la organización para idear una solución original.",
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Paso 3: <span class="font-medium">Programar</span>',
+        description:
+          'Es hora de dar vida a tu idea: utiliza tus habilidades de programación y herramientas de desarrollo para construir un prototipo funcional.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Paso 4: <span class="font-medium">La entrega</span>',
+        description:
+          'Incluye documentación y una demostración convincente para mostrar el potencial y la aplicabilidad de tu proyecto.',
+        icon: 'tabler:cube-send',
+      },
+      {
+        title: '¡Los premios!',
+        icon: 'tabler:trophy',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Hackathon',
+    }}
+  >
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+  </Steps>
+
+  <Testimonials
+  title="Lo que cuentan de HackUDC"
+  subtitle="Participantes que encontraron su camino profesional y empresas que encontraron el perfil que buscaban."
+  testimonials={[
+    {
+      testimonial: 'Mi experiencia fue inmejorable. La organización pensó en todo para que los participantes estuviéramos siempre a gusto. En resumen: aprender, conocer gente nueva y pasarlo muy bien.',
+      name: 'Aitor Couñago',
+      job: 'Participante → BizAway',
+      image: {
+        src: aitorImage,
+        alt: 'Aitor Couñago Imagen',
+      },
+    },
+    {
+      testimonial: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dignissim diam quis enim lobortis scelerisque.',
+      name: 'Paula Domínguez',
+      job: 'Talent Manager @ Gradiant',
+      image: {
+        src: paulaImage,
+        alt: 'Paula Domínguez Imagen',
+      },
+    },
+    {
+      testimonial: 'Placerat vestibulum lectus mauris ultrices eros in. Sed felis eget velit aliquet sagittis id. Platea dictumst vestibulum rhoncus est pellentesque elit. Tortor pretium viverra suspendisse potenti nullam ac.',
+      name: 'Jorge Hermo',
+      job: 'Participante → Inditex',
+      image: {
+        src: jorgeImage,
+        alt: 'Jorge Hermo Imagen',
+      },
+    },
+  ]}
+/>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    id="faq"
+    title="Preguntas frequentes"
+    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Cuándo es HackUDC?',
+        description:
+          "La ceremonia de apertura será el viernes 16 de febrero sobre las seis de la tarde. El evento terminará el domingo al mediodía, con la ceremonia de entrega de premios.",
+      },
+      {
+        title: '¿Dónde es HackUDC?',
+        description:
+          'El evento se realizará en la Facultad de Informática de la UDC. En el Campus de Elviña, en A Coruña.',
+      },
+      {
+        title: '¿Qué incluye HackUDC?',
+        description:
+          "HackUDC es completamente gratuito para los hackers. Se proporciona WiFi y espacios de trabajo. Desayunos, comidas, cenas y snacks serán totalmente gratuitos durante el evento. Recuerda indicar tus restricciones alimentarias a la hora de registrarte.",
+      },
+      {
+        title: "Si no soy de A Coruña, ¿dónde puedo dormir?",
+        description:
+          "Si eres de fuera de Coruña y no tienes dónde dormir, indícalo en el formulario de registro y te buscamos un lugar.",
+      },
+      {
+        title: '¿Qué puedo crear?',
+        description:
+          "Se puede crear cualquier proyecto relacionado con la tecnología. No tenemos restricciones sobre el tema. El único requisito es que el proyecto realizado durante el hackathon sea publicado en abierto con una licencia libre. Algunos ejemplos pueden ser aplicaciones web, aplicaciones móviles, proyectos de hardware, juegos, APIs...",
+      },
+      {
+        title: '¿Qué tengo que llevar?',
+        description:
+          "Para la admisión, será necesario acreditar la identidad con el DNI o similar. Otros cosas comunes para traer al hackathon son: portátil y cargador, ropa cómoda, saco de dormir (igual necesitas una siesta) y ¡ganas de aprender!",
+      },
+      {
+        title: '¿Quién puede participar?',
+        description:
+          "Estudiantes mayores de edad. Cualquier estudiante, ya sea de universidad, formación profesional, bachilerato u otros es bienvenido.",
+      },
+      {
+        title: '¿Cómo inscribirse?',
+        description:
+          "Para inscribirse tienes que mandar tu solicitud en el formulario de registro que puedes encontrar en la esquina superior derecha de esta página. Te enviaremos una confirmación cuando aceptemos tu solicitud.",
+      },
+      {
+        title: '¿Y si no soy estudiante?',
+        description:
+          "Puedes apuntarte como mentor para disfrutar del evento y echar una mano a los participantes con sus proyectos, si quieres ser mentor, contáctanos por correo o .",
+      },
+      {
+        title: '¿Cómo inscribirse?',
+        description:
+          "Para inscribirse tienes que mandar tu solicitud en el formulario de registro que puedes encontrar en la esquina superior derecha de esta página. Te enviaremos una confirmación cuando aceptemos tu solicitud.",
+      },
+      {
+        title: '¿Y si no soy estudiante?',
+        description:
+          "Puedes apuntarte como mentor para disfrutar del evento y echar una mano a los participantes con sus proyectos, si quieres ser mentor, contáctanos por correo.",
+      },
+      {
+        title: '¿Que pasa si no tengo experiencia con código?',
+        description:
+          "¡No hay problema! ¡Nos encantaría contar contigo! De hecho, vienes aquí para aprender, por lo que no necesitas ninguna experiencia previa.",
+      },
+      {
+        title: '¿Que pasa si no tengo equipo?',
+        description:
+          "Parte de la diversión de un hackathon es conocer gente nueva. Tendremos una actividad de team building al comienzo del evento para que todos se reúnan y formen equipos.",
+      },
+      {
+        title: '¿Que pasa si no tengo experiencia con código?',
+        description:
+          "¡No hay problema! ¡Nos encantaría contar contigo! De hecho, vienes aquí para aprender, por lo que no necesitas ninguna experiencia previa.",
+      },
+      {
+        title: '¿Cuál es el tamaño máximo del equipo?',
+        description:
+          "Los equipos pueden ser de hasta 4 hackers.",
+      },
+      {
+        title: '¿Puedo cambiar de equipo durante el evento?',
+        description:
+          "Sí, de hecho lo único que cuenta con el equipo es la entrega final, así que asegúrate de entregar el proyecto correctamente. Las instrucciones de entrega se darán durante el evento.",
+      },
+      {
+        title: '¿Cómo solicitar los 3 créditos ECTS?',
+        description:
+          "Si estudias en la UDC, participando en HackUDC puedes reconocer 3 créditos ECTS. Durante el evento se hará un control de asistencia a los participantes. El alumnado de la UDC interesado deberá solicitar el reconocimeento de los créditos que correspondan ante la Vicerreitoría de Estudantes, Participación e Empregabilidad.",
+      },
+      {
+        title: '¿Tienes alguna otra duda?',
+        description:
+          "Para cualquier otra duda, puedes escribirnos a través del formulario de contacto, redes sociales o en hackudc@gpul.org",
+      },
+    ]}
+  >
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</FAQs>
 
   <!-- CallToAction Widget *********** -->
 
@@ -364,20 +364,18 @@ import { getPermalink } from '~/utils/permalinks';
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'Registrarse',
+        href: getPermalink('/registro'),
+        icon: 'tabler:user-scan',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      ¿A qué esperas? Regístrate.
     </Fragment>
 
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      No pierdas más tiempo y cubre el formulario de registro, será una experiencia inolvidable.
     </Fragment>
   </CallToAction>
 </Layout>
