@@ -9,6 +9,7 @@ import Testimonials from '~/components/widgets/Testimonials.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Note from '~/components/widgets/Note.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 import logoCodee from '~/assets/images/codee.png';
@@ -50,19 +51,19 @@ import jorgeImage from '~/assets/images/jorge.jpeg';
   <Features
     id="que-es"
     tagline="Qué es"
-    title="¿Qué es el HackUDC?"
-    subtitle="HackUDC 2024 es la segunda edición del mayor hackathon en Galicia, en donde más de 130 estudiantes se juntan para desarrollar proyectos."
+    title="¿Qué es HackUDC?"
+    subtitle="HackUDC 2024 es la segunda edición del mayor hackathon de Galicia, en donde más de 130 estudiantes se juntan para desarrollar proyectos."
     items={[
       {
         title: '16, 17 y 18 de febrero',
         description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
+          'El evento tendrá lugar durante tres días, empezando el viernes y terminando el domingo con la entrega de premios.',
         icon: 'tabler:calendar',
       },
       {
         title: 'Facultad de Informática, UDC',
         description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+          'El evento tendrá lugar en la Facultad de Informática de la UDC, en el Campus de Elviña.',
         icon: 'tabler:location',
       },
       {
@@ -291,12 +292,12 @@ colaboradores={[
       {
         title: '¿Qué puedo crear?',
         description:
-          "Se puede crear cualquier proyecto relacionado con la tecnología. No tenemos restricciones sobre el tema. El único requisito es que el proyecto realizado durante el hackathon sea publicado en abierto con una licencia libre. Algunos ejemplos pueden ser aplicaciones web, aplicaciones móviles, proyectos de hardware, juegos, APIs...",
+          "Se puede crear cualquier proyecto relacionado con la tecnología. No tenemos restricciones sobre el tema. El único requisito es que el proyecto realizado durante el hackathon sea publicado bajo una licencia libre. Algunos ejemplos pueden ser aplicaciones web, aplicaciones móviles, proyectos de hardware, juegos, APIs...",
       },
       {
         title: '¿Qué tengo que llevar?',
         description:
-          "Para la admisión, será necesario acreditar la identidad con el DNI o similar. Otros cosas comunes para traer al hackathon son: portátil y cargador, ropa cómoda, saco de dormir (igual necesitas una siesta) y ¡ganas de aprender!",
+          "Para la admisión, será necesario acreditar la identidad con el DNI o similar. Otros cosas comunes para traer al hackathon son: portátil y cargador, ropa cómoda y ¡ganas de aprender!",
       },
       {
         title: '¿Quién puede participar?',
@@ -307,11 +308,6 @@ colaboradores={[
         title: '¿Cómo inscribirse?',
         description:
           "Para inscribirse tienes que mandar tu solicitud en el formulario de registro que puedes encontrar en la esquina superior derecha de esta página. Te enviaremos una confirmación cuando aceptemos tu solicitud.",
-      },
-      {
-        title: '¿Y si no soy estudiante?',
-        description:
-          "Puedes apuntarte como mentor para disfrutar del evento y echar una mano a los participantes con sus proyectos, si quieres ser mentor, contáctanos por correo o .",
       },
       {
         title: '¿Cómo inscribirse?',
@@ -334,11 +330,6 @@ colaboradores={[
           "Parte de la diversión de un hackathon es conocer gente nueva. Tendremos una actividad de team building al comienzo del evento para que todos se reúnan y formen equipos.",
       },
       {
-        title: '¿Que pasa si no tengo experiencia con código?',
-        description:
-          "¡No hay problema! ¡Nos encantaría contar contigo! De hecho, vienes aquí para aprender, por lo que no necesitas ninguna experiencia previa.",
-      },
-      {
         title: '¿Cuál es el tamaño máximo del equipo?',
         description:
           "Los equipos pueden ser de hasta 4 hackers.",
@@ -346,12 +337,12 @@ colaboradores={[
       {
         title: '¿Puedo cambiar de equipo durante el evento?',
         description:
-          "Sí, de hecho lo único que cuenta con el equipo es la entrega final, así que asegúrate de entregar el proyecto correctamente. Las instrucciones de entrega se darán durante el evento.",
+          "Sí, de hecho lo único que cuenta es la entrega final, así que asegúrate de entregar el proyecto correctamente. Las instrucciones de entrega se darán durante el evento.",
       },
       {
         title: '¿Cómo solicitar los 3 créditos ECTS?',
         description:
-          "Si eres estudiante de la UDC, participando en HackUDC puedes reconocer 3 créditos ECTS. Durante el evento se hará un control de asistencia a los participantes. El alumnado de la UDC interesado deberá solicitar el reconocimento de los créditos ante la <a href='https://www.udc.es/es/goberno/equipo_reitoral/vepem/' class='underline'>VEPEM</a>.",
+          "Si eres estudiante de la UDC, participando en HackUDC puedes reconocer 3 créditos ECTS. Durante el evento se hará un control de asistencia a los participantes. El alumnado de la UDC interesado deberá solicitar el reconocimento de los créditos ante la <a href='https://www.udc.es/es/goberno/equipo_reitoral/vepem/' class='underline'>VEPEM</a>. Antes, durante y después del evento daremos información más detallada.",
       },
       {
         title: '¿Tienes alguna otra duda?',
@@ -385,4 +376,11 @@ colaboradores={[
       No pierdas más tiempo y cubre el formulario de registro, ¡hay plazas limitadas!
     </Fragment>
   </CallToAction>
+
+
+  <Note icon="tabler:shield-heart">
+    <Fragment slot="content">
+      Puedes leer la <a href={getPermalink("/privacidad")} class="underline">política de privacidad</a> y el <a href={getPermalink("/codigo-conducta")} class="underline">código de conducta</a>.
+    </Fragment>
+  </Note>
 </Layout>

@@ -1,9 +1,11 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Prices from '~/components/widgets/Pricing.astro';
+import Note from '~/components/widgets/Note.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
   title: 'Pricing',
@@ -71,7 +73,7 @@ const metadata = {
         title: 'Oro',
         subtitle: 'Propón tu reto en el hackathon',
         price: 1500,
-        period: '+ 400 en premios',
+        period: '+ 400 € en premios',
         items: [
           {
             description: 'Todo lo incluido en PLATA',
@@ -102,7 +104,7 @@ const metadata = {
 
   <Features3
     title="Mejóralo con extras"
-    subtitle="Si quieres más, puedes añadir al pack cualquiera de los siguientes extras para ganar visibilidad."
+    subtitle="Si quieres más, puedes añadir al pack cualquiera de los siguientes extras."
     columns={3}
     items={[
       {
@@ -154,7 +156,7 @@ const metadata = {
       {
         title: '¿Como se hace el pago?',
         description:
-          'Desde GPUL, la asociación que organiza el evento, emitiremos una factura a nombre de la empresa que deberá ser abonada por transferencia bancaria antes del evento.',
+          'Desde GPUL, la asociación que organiza el evento, emitiremos una factura a nombre de la empresa que deberá ser abonada por transferencia bancaria <b>antes del evento</b>.',
       },
       {
         title: 'Quiero añadir algo que no exponeis, ¿es posible?',
@@ -169,7 +171,7 @@ const metadata = {
   <CallToAction
     id="sponsor-cta"
     title="¿A qué esperas?"
-    subtitle="Escríbenos a hackudc@gpul.org para confirmar el patrocinio o si tienes cualquier duda."
+    subtitle="Escríbenos para confirmar el patrocinio o si tienes cualquier duda."
     actions={[
       {
         variant: 'secondary',
@@ -185,4 +187,10 @@ const metadata = {
       },
     ]}
   />
+
+  <Note icon="tabler:shield-heart">
+    <Fragment slot="content">
+      Puedes leer la <a href={getPermalink("/privacidad")} class="underline">política de privacidad</a> y el <a href={getPermalink("/codigo-conducta")} class="underline">código de conducta</a>.
+    </Fragment>
+  </Note>
 </Layout>
