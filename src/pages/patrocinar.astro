@@ -16,7 +16,7 @@ const metadata = {
 
   <Prices
     title="¿Quieres patrocinar HackUDC?"
-    subtitle="Una oportunidad única para conectar con futuros talentos que son el futuro inmediato del sector tecnológico."
+    subtitle="Una oportunidad única para conectar el futuro inmediato del sector tecnológico en Galicia."
     prices={[
       {
         title: 'Bronce',
@@ -147,9 +147,9 @@ const metadata = {
           'No, los precios mostrados son sin IVA.',
       },
       {
-        title: '¿Cómo se asignan los patrocinios ORO?',
+        title: '¿Cómo se asignan los patrocinios?',
         description:
-          "Los patrocinios ORO son exclusivos para 4 empresas, se asignarán por orden de llegada.",
+          "Los patrocinios ORO son exclusivos para 4 empresas y se asignarán por orden de llegada. Los patrocinios plata y bronce no están limitados.",
       },
       {
         title: '¿Como se hace el pago?',
@@ -169,12 +169,19 @@ const metadata = {
   <CallToAction
     id="sponsor-cta"
     title="¿A qué esperas?"
-    subtitle="Escríbenos para confirmar el patrocinio o si tienes cualquier duda."
+    subtitle="Escríbenos a hackudc@gpul.org para confirmar el patrocinio o si tienes cualquier duda."
     actions={[
       {
+        variant: 'secondary',
+        text: 'Dossier completo',
+        href: '/Dossier patrocinios.pdf',
+        icon: 'tabler:file-type-pdf'
+      },
+      {
         variant: 'primary',
-        text: 'Escríbenos → hackudc@gpul.org',
+        text: 'Escríbenos',
         href: 'mailto:hackudc@gpul.org',
+        icon: 'tabler:mail'
       },
     ]}
   />
