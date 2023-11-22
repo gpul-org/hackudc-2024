@@ -233,9 +233,9 @@ export interface Testimonials extends Headline, Widget {
 }
 
 export interface Brands extends Headline, Widget {
-  oro?: Array<Image & { height: number, width: number }>;
-  plata?: Array<Image & { height: number, width: number }>;
-  colaboradores?: Array<Image & { height: number, width: number }>;
+  oro?: Array<Image & { height: number, width: number, href: string }>;
+  plata?: Array<Image & { height: number, width: number, href: string }>;
+  colaboradores?: Array<Image & { height: number, width: number, href: string }>;
 }
 
 export interface Features extends Headline, Widget {

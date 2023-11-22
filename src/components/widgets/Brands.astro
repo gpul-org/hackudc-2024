@@ -27,8 +27,10 @@ const {
       oro.map(
           (image) =>
             image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+                <a href={image.href}>
+                  <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+                </a>
               </div>
             )
         )
@@ -41,8 +43,10 @@ const {
       plata.map(
           (image) =>
             image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+                <a href={image.href}>
+                  <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+                </a>
               </div>
             )
         )
@@ -55,8 +59,10 @@ const {
       colaboradores.map(
           (image) =>
             image.src && (
-              <div class="flex justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+                <a href={image.href}>
+                  <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+                </a>
               </div>
             )
         )
