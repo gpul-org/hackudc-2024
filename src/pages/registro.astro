@@ -1,6 +1,7 @@
 ---
 import Contact from '~/components/widgets/Contact.astro';
 import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 ---
@@ -21,10 +22,34 @@ import { getPermalink } from '~/utils/permalinks';
     description="Al enviar, aceptas la política de privacidad."
   />
 
+
+  <Steps
+    title="Datos que puedes ir preparando:"
+    items={[
+      {
+        title: 'Justificación de la condición de estudiante',
+        description:
+          "Para participar, necesitarás verificar tu condición de estudiante. Esto se puede hacer enviando una copia de tu matrícula, tarjeta universitaria escaneada, o cualquier otro documento oficial que lo acredite. Recuerda, la participación está abierta a estudiantes de todos los niveles educativos, no solo universitarios.",
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Currículum vitae',
+        description:
+          "Para tu inscripción, requerimos tu CV en formato PDF. Como una opción adicional, si lo deseas, podemos compartirlo con los patrocinadores del evento. No te preocupes si tienes poca experiencia; es normal al principio. Considera esto como una oportunidad para elaborar y mejorar tu primer CV.",
+        icon: 'tabler:file-cv',
+      },
+      {
+        title: 'Motivación para participar en HackUDC',
+        description:
+          'Dado que las plazas son limitadas, si recibimos más solicitudes de las que podemos aceptar, seleccionaremos a los participantes en base a las razones que nos proporcionen para querer participar. Cuéntanos por qué quieres ser parte de HackUDC y qué te motiva a unirte.',
+        icon: 'tabler:code',
+      },
+    ]}
+  />
+
   <Note icon="tabler:shield-heart">
     <Fragment slot="content">
       Puedes leer la <a href={getPermalink("/privacidad")} class="underline">política de privacidad</a> y el <a href={getPermalink("/codigo-conducta")} class="underline">código de conducta</a>.
     </Fragment>
   </Note>
-
 </Layout>
