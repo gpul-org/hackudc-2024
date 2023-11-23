@@ -5,9 +5,13 @@ import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Registro',
+};
 ---
 
-<Layout>
+<Layout metadata={metadata}>
   <div class="mt-12" />
 
   <Headline
