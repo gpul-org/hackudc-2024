@@ -1,5 +1,6 @@
 ---
-import Contact from '~/components/widgets/Contact.astro';
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/blog/Headline.astro';
 import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
@@ -7,20 +8,50 @@ import { getPermalink } from '~/utils/permalinks';
 ---
 
 <Layout>
-  <Contact
-    title="El formulario de registro aún no está abierto"
-    subtitle="Puedes dejarnos tu email y te avisaremos cuando esté disponible. Si ya te apuntaste en <a href='https://secret.gpul.org' class='underline'>secret.gpul.org</a>, no hace falta que te vuelvas a anotar."
-    inputs={[
-      {
-        type: 'email',
-        autocomplete: 'off',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    button="Avísame"
-    description="Al enviar, aceptas la política de privacidad."
+  <div class="mt-12" />
+
+  <Headline
+    title="<h3 class='text-4xl font-bold'>El formulario de registro aún no está abierto</h3>"
+    subtitle="Puedes dejarnos tu email y te avisaremos cuando esté disponible."
   />
+
+  <div class="flex flex-col mb-10 max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow px-4 py-2 sm:px-6 lg:px-8 lg:py-4 w-full">
+    <div class="mb-2">
+      <form id="form">
+        <label for="email" class="block text-sm font-medium my-1 mt-4">
+          Email <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="off"
+          placeholder="torvalds@osdl.org"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <div class="mt-5">
+          <button class="btn-primary w-full" id="submit">
+            Avísame <Icon name="tabler:bell-ringing" class="w-6 h-6 pl-2" />
+          </button>
+        </div>
+        <div class="mt-3 text-center">
+          <p class="text-sm text-gray-600 dark:text-gray-400">Al enviar, aceptas la <a href={getPermalink('/privacidad')} class="underline">política de privacidad</a>.</p>
+        </div>
+      </form>
+      <div id="success" class="hidden h-48 flex-col text-center justify-around">
+        <div class="flex justify-center">
+          <Icon name="tabler:circle-check" class="w-24 h-24 text-green-800" />
+        </div>
+        <p class="text-xl">El formulario se ha enviado con éxito.</p>
+      </div>
+      <div id="error" class="hidden h-48 flex-col text-center justify-around">
+        <div class="flex justify-center">
+          <Icon name="tabler:circle-x" class="w-24 h-24 text-red-800" />
+        </div>
+        <p class="text-xl">Ha habido un error, inténtalo de nuevo mas tarde o contáctanos por correo directamente.</p>
+      </div>
+    </div>
+  </div>
 
 
   <Steps
@@ -53,3 +84,76 @@ import { getPermalink } from '~/utils/permalinks';
     </Fragment>
   </Note>
 </Layout>
+
+
+<script>
+  const form = document.getElementById("form") as HTMLFormElement;
+  const successDiv = document.getElementById("success") as HTMLDivElement;
+  const errorDiv = document.getElementById("error") as HTMLDivElement;
+  const submitBtn = document.getElementById("submit") as HTMLButtonElement;
+  const emailInput = document.getElementById('email') as HTMLInputElement;
+
+  async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.status !== 200) {
+      throw new Error('Status not 200');
+    } 
+
+    return response.json();
+  }
+
+  submitBtn?.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    // Remove existing red borders
+    [emailInput].forEach(input => {
+      input?.classList.remove('border-red-500');
+    });
+
+    // Validate fields and add red borders to empty ones
+    let isValid = true;
+
+    // Validate email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(emailInput?.value.trim())) {
+      emailInput.classList.add('border-red-500');
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    // Disable the button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    // Your form data
+    const data = {
+      email: emailInput.value,
+    };
+
+    // Send POST request
+    try {
+      await postData('https://n8n.jorgeteixeira.es/webhook/hackudc-waitlist-registro', data);
+      // Handle success
+      submitBtn.textContent = 'Enviado';
+      form.classList.add("hidden");
+      successDiv.classList.toggle("hidden");
+      successDiv.classList.add("flex");
+    } catch (error) {
+      // Handle error (optional)
+      submitBtn.textContent = 'Error';
+      form.classList.add("hidden");
+      errorDiv.classList.toggle("hidden");
+      errorDiv.classList.add("flex");
+    }
+  });
+</script>
