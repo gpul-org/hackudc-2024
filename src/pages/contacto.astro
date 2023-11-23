@@ -1,8 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import Contact from '~/components/widgets/Contact.astro';
 import Note from '~/components/widgets/Note.astro';
 import { getPermalink } from '~/utils/permalinks';
+import Headline from '~/components/blog/Headline.astro';
+import { Icon } from 'astro-icon/components';
 
 const metadata = {
   title: 'Contacto',
@@ -11,33 +12,68 @@ const metadata = {
 
 <Layout metadata={metadata}>
 
-  <Contact
+  <div class="mt-12" />
+
+  <Headline
     title="Contacta con la organización"
     subtitle="Para respuestas más rápidas, explora la sección de <a href='/#faq' class='underline'>preguntas frecuentes</a>."
-    inputs={[
-      {
-        type: 'text',
-        autocomplete: 'off',
-        required: true,
-        name: 'name',
-        label: 'Nombre',
-      },
-      {
-        type: 'email',
-        autocomplete: 'off',
-        required: true,
-        name: 'email',
-        error: 'Intoduce un email válido',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Mensaje',
-      required: true,
-    }}
-    button="Enviar"
-    description="Normalmente respondemos en menos de 24h."
   />
+
+  <div class="flex flex-col mb-10 max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+    <div class="mb-2">
+      <form id="form">
+        <label for="name" class="block text-sm font-medium my-1">
+          Nombre <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="off"
+          placeholder="Linus Torvalds"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <label for="email" class="block text-sm font-medium my-1 mt-4">
+          Email <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          autocomplete="off"
+          placeholder="torvalds@osdl.org"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <label for="message" class="block text-sm font-medium my-1 mt-4">
+          Mensaje <small class="text-red-500 pl-1">*</small>
+        </label>
+        <textarea
+          name="message"
+          id="message"
+          rows="4"
+          placeholder="Escribe aquí tu solicitud..."
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <div class="mt-5">
+          <button class="btn-primary w-full" id="submit">
+            Enviar <Icon name="tabler:send" class="w-6 h-6 pl-2" />
+          </button>
+        </div>
+      </form>
+      <div id="success" class="hidden h-48 flex-col text-center justify-around">
+        <div class="flex justify-center">
+          <Icon name="tabler:circle-check" class="w-24 h-24 text-green-800" />
+        </div>
+        <p class="text-xl">El formulario se ha enviado con éxito.</p>
+      </div>
+      <div id="error" class="hidden h-48 flex-col text-center justify-around">
+        <div class="flex justify-center">
+          <Icon name="tabler:circle-x" class="w-24 h-24 text-red-800" />
+        </div>
+        <p class="text-xl">Ha habido un error, inténtalo de nuevo mas tarde o contáctanos por correo directamente.</p>
+      </div>
+    </div>
+  </div>
 
   <Note icon="tabler:shield-heart">
     <Fragment slot="content">
@@ -46,11 +82,84 @@ const metadata = {
   </Note>
 </Layout>
 
-
 <script>
-  const submitButton = document.getElementById('submitButton');
-  const form = document.querySelector('form');
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const requestInput = document.getElementById('request');
+  const form = document.getElementById("form") as HTMLFormElement;
+  const successDiv = document.getElementById("success") as HTMLDivElement;
+  const errorDiv = document.getElementById("error") as HTMLDivElement;
+  const submitBtn = document.getElementById("submit") as HTMLButtonElement;
+  const nameInput = document.getElementById('name') as HTMLInputElement;
+  const emailInput = document.getElementById('email') as HTMLInputElement;
+  const messageInput = document.getElementById('message') as HTMLInputElement;
+
+  async function postData(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.status !== 200) {
+      throw new Error('Status not 200');
+    } 
+
+    return response.json();
+  }
+
+  submitBtn?.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    // Remove existing red borders
+    [nameInput, emailInput, messageInput].forEach(input => {
+      input?.classList.remove('border-red-500');
+    });
+
+    // Validate fields and add red borders to empty ones
+    let isValid = true;
+    [nameInput, emailInput, messageInput].forEach((input: HTMLInputElement) => {
+      if (!input?.value?.trim()) {
+        input?.classList.add('border-red-500');
+        isValid = false;
+      }
+    });
+
+    // Validate email
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(emailInput?.value.trim())) {
+      emailInput.classList.add('border-red-500');
+      isValid = false;
+    }
+
+    if (!isValid) {
+      return;
+    }
+
+    // Disable the button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+
+    // Your form data
+    const data = {
+      name: nameInput.value,
+      email: emailInput.value,
+      request: messageInput.value
+    };
+
+    // Send POST request
+    try {
+      await postData('https://n8n.jorgeteixeira.es/webhook/hackudc-contact', data);
+      // Handle success
+      submitBtn.textContent = 'Enviado';
+      form.classList.add("hidden");
+      successDiv.classList.toggle("hidden");
+      successDiv.classList.add("flex");
+    } catch (error) {
+      // Handle error (optional)
+      submitBtn.textContent = 'Error';
+      form.classList.add("hidden");
+      errorDiv.classList.toggle("hidden");
+      errorDiv.classList.add("flex");
+    }
+  });
 </script>
