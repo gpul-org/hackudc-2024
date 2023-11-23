@@ -161,6 +161,8 @@ export interface Input {
   type: HTMLInputTypeAttribute;
   name: string;
   label?: string;
+  error?: string;
+  required?: boolean;
   autocomplete?: string;
   placeholder?: string;
 }
@@ -168,6 +170,8 @@ export interface Input {
 export interface Textarea {
   label?: string;
   placeholder?: string;
+  error?: string;
+  required?: boolean;
   rows?: number;
 }
 
@@ -235,6 +239,7 @@ export interface Testimonials extends Headline, Widget {
 export interface Brands extends Headline, Widget {
   oro?: Array<Image & { height?: number, width?: number, href?: string }>;
   plata?: Array<Image & { height?: number, width?: number, href?: string }>;
+  bronce?: Array<Image & { height?: number, width?: number, href?: string }>;
   colaboradores?: Array<Image & { height?: number, width?: number, href?: string }>;
 }
 

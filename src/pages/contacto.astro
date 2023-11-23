@@ -17,17 +17,23 @@ const metadata = {
     inputs={[
       {
         type: 'text',
+        autocomplete: 'off',
+        required: true,
         name: 'name',
         label: 'Nombre',
       },
       {
         type: 'email',
+        autocomplete: 'off',
+        required: true,
         name: 'email',
+        error: 'Intoduce un email válido',
         label: 'Email',
       },
     ]}
     textarea={{
       label: 'Mensaje',
+      required: true,
     }}
     button="Enviar"
     description="Normalmente respondemos en menos de 24h."
@@ -39,3 +45,12 @@ const metadata = {
     </Fragment>
   </Note>
 </Layout>
+
+
+<script>
+  const submitButton = document.getElementById('submitButton');
+  const form = document.querySelector('form');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const requestInput = document.getElementById('request');
+</script>

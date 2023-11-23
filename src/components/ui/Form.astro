@@ -9,12 +9,12 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', error = '', required = false }) =>
           name && (
-            <div class="mb-6">
+            <div class="mb-2">
               {label && (
-                <label for={name} class="block text-sm font-medium">
-                  {label}
+                <label for={name} class="block text-sm font-medium mb-1">
+                  {label} { required && <small class="text-red-500 pl-1">*</small>}
                 </label>
               )}
               <input
@@ -25,6 +25,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
                 placeholder={placeholder}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
               />
+              { error && <small class="text-red-500 mb-0">{error}</small>}
             </div>
           )
       )
@@ -33,8 +34,8 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     textarea && (
       <div>
-        <label for="textarea" class="block text-sm font-medium">
-          {textarea.label}
+        <label for="textarea" class="block text-sm font-medium mb-1">
+          {textarea.label} { textarea.required && <small class="text-red-500 pl-1">*</small>}
         </label>
         <textarea
           id="textarea"
@@ -43,6 +44,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           placeholder={textarea.placeholder}
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
+        { textarea.error && <small class="text-red-500 mb-0">{textarea.error}</small>}
       </div>
     )
   }

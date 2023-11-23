@@ -1,7 +1,6 @@
 site:
   name: HackUDC
   site: 'https://hackudc.gpul.org'
-  base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: # TODO
@@ -18,13 +17,13 @@ metadata:
   openGraph:
     site_name: HackUDC 2024 - 16 al 18 de Febrero | El hackathon universitario organizado por GPUL
     images:
-      - url: '~/assets/images/meta.png'
+      - url: '~/assets/images/metatag.jpeg'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@gpul'
-    site: '@gpul'
+    handle: '@gpul_'
+    site: '@gpul_'
     cardType: summary_large_image
 
 i18n:

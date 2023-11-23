@@ -9,6 +9,7 @@ const {
   tagline = '',
   oro = [],
   plata = [],
+  bronce = [],
   colaboradores = [],
   id,
   isDark = false,
@@ -41,6 +42,22 @@ const {
     {
       plata &&
       plata.map(
+          (image) =>
+            image.src && (
+              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+                { image.href ? <a href={image.href}>
+                  <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
+                </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
+              </div>
+            )
+        )
+    }
+  </div>
+  <div class="mt-5 text-center text-xl dark:text-gray-300 font-medium mb-2">Bronce</div>
+  <div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
+    {
+      bronce &&
+      bronce.map(
           (image) =>
             image.src && (
               <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">

@@ -1,51 +1,24 @@
 ---
-import Note from '~/components/widgets/Note.astro';
 import Contact from '~/components/widgets/Contact.astro';
+import Note from '~/components/widgets/Note.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 ---
 
 <Layout>
   <Contact
-    title="Regístrate y participa en HackUDC"
-    subtitle="Asegúrate de cubrir correctamente todos los campos, una vez lo envíes no podrás editarlo. Recibirás un correo electrónico cuando seas aceptado."
+    title="El formulario de registro aún no está abierto"
+    subtitle="Puedes dejarnos tu email y te avisaremos cuando esté disponible."
     inputs={[
-      {
-        type: 'text',
-        autocomplete: 'off',
-        name: 'name',
-        label: 'Nombre y apellidos',
-      },
       {
         type: 'email',
         autocomplete: 'off',
         name: 'email',
         label: 'Email',
       },
-      {
-        type: 'checkbox',
-        autocomplete: 'off',
-        name: 'email',
-        label: 'Email',
-      },
-      {
-        type: 'file',
-        autocomplete: 'off',
-        name: 'cv',
-        label: 'Currículum vitae',
-      },
-      {
-        type: 'file',
-        autocomplete: 'off',
-        name: 'justify',
-        label: 'Justificación de condición de estudiante',
-      },
     ]}
-    textarea={{
-      label: 'Mensaje',
-    }}
-    button="Enviar"
-    description="Al enviar, aceptas la política de privacidad y el código de conducta."
+    button="Avísame"
+    description="Al enviar, aceptas la política de privacidad."
   />
 
   <Note icon="tabler:shield-heart">
