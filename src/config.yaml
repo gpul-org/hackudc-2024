@@ -10,7 +10,7 @@ metadata:
   title:
     default: HackUDC - 16 al 18 de Febrero | El hackathon universitario organizado por GPUL
     template: '%s — HackUDC - 16 al 18 de Febrero | El hackathon universitario organizado por GPUL'
-  description: "\U0001F680 Participa en el HackUDC, el evento estudiantil más emocionante organizado por GPUL en la Universidad de A Coruña. Sumérgete en un desafío de programación y tecnología, donde la innovación y la creatividad se unen para dar forma al futuro. Conoce, aprende y compite en un ambiente vibrante y lleno de oportunidades."
+  description: "Participa en el HackUDC, el evento estudiantil más emocionante organizado por GPUL en la Universidad de A Coruña. Sumérgete en un desafío de programación y tecnología, donde la innovación y la creatividad se unen para dar forma al futuro."
   robots:
     index: true
     follow: true
