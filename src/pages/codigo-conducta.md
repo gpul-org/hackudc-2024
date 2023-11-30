@@ -35,7 +35,6 @@ Si necesitas contactar directamente a un miembro del equipo, por favor contacta 
 - Paula Taibo: [@p_taibo](https://t.me/p_taibo) en Telegram, paula.taibo@gpul.org.
 - Bruno Cabado: [@SrBrunoCabado](https://t.me/srbrunocabado) en Telegram, bruno.cabado@gpul.org.
 
-
 ## Cambios
 
 El código de conducta puede cambiar. Informaremos de cualquier cambio en esta página y, si los cambios son significativos, usaremos otros métodos adicionales para notificar dichos cambios (incluyendo, por ejemplo, el envío de correos electrónicos).

@@ -4,19 +4,19 @@ export const headerData = {
   links: [
     {
       text: 'Inicio',
-      href: getPermalink('/')
+      href: getPermalink('/'),
     },
     {
       text: '¿Qué es?',
-      href: getPermalink('#que-es')
+      href: getPermalink('#que-es'),
     },
     {
       text: 'FAQ',
-      href: getPermalink('#faq')
+      href: getPermalink('#faq'),
     },
     {
       text: 'Patrocinar',
-      href: getPermalink('/patrocinar')
+      href: getPermalink('/patrocinar'),
     },
     {
       text: 'Contacto',

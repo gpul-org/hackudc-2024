@@ -3,7 +3,7 @@ title: 'Política de privacidad'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Última actualización_:  01/12/2023
+_Última actualización_: 01/12/2023
 
 En cumplimiento con la normativa vigente sobre protección de datos personales, se le informa de los siguientes aspectos:
 
@@ -57,7 +57,6 @@ GPUL está legalmente autorizado para procesar sus datos personales para mostrar
 ### Respecto a alergias e intolerancias alimentarias:
 
 GPUL procesará tus datos personales únicamente para gestionar el servicio de catering.
-
 
 ## Por qué podríamos procesar tus datos personales
 
