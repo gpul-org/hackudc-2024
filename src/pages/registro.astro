@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Headline from '~/components/blog/Headline.astro';
 import Note from '~/components/widgets/Note.astro';
-import Steps from '~/components/widgets/Steps.astro';
+// import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 
@@ -15,13 +15,24 @@ const metadata = {
   <div class="mt-12" />
 
   <Headline
-    title="<h3 class='text-4xl font-bold'>El formulario de registro aún no está abierto</h3>"
-    subtitle="Puedes dejarnos tu email y te avisaremos cuando esté disponible."
+    title="<h3 class='text-4xl font-bold'>Regístrate ya</h3>"
+    subtitle="Las plazas son limitadas, te avisaremos cuando seas aceptado en el hackathon."
   />
 
   <div class="flex flex-col mb-10 max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow px-4 py-2 sm:px-6 lg:px-8 lg:py-4 w-full">
     <div class="mb-2">
       <form id="form">
+        <label for="name" class="block text-sm font-medium my-1 mt-4 relative">
+          Nombre completo <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          autocomplete="off"
+          placeholder="Linus Torvalds"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
         <label for="email" class="block text-sm font-medium my-1 mt-4">
           Email <small class="text-red-500 pl-1">*</small>
         </label>
@@ -33,9 +44,207 @@ const metadata = {
           placeholder="torvalds@osdl.org"
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
+        <label for="phone" class="block text-sm font-medium my-1 mt-4">
+          Número de teléfono <small class="text-red-500 pl-1">*</small>
+          <span class="ml-2 text-gray-500 hover:text-gray-700 cursor-help group relative text-small">
+            <Icon name="tabler:help" class="w-4 h-4 mb-1 inline" />
+            <span class="absolute w-64 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 -mt-12 ml-16 hidden group-hover:block">
+              Contacto en caso de urgencia.
+            </span>
+          </span>
+        </label>
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          autocomplete="off"
+          placeholder="881 011 964"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <label for="age" class="block text-sm font-medium my-1 mt-4">
+          Edad <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          autocomplete="off"
+          placeholder="53"
+          min="18"
+          step="1"
+          max="50"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <label for="studyLevel" class="block text-sm font-medium my-1 mt-4">
+          Nivel de estudios en curso <small class="text-red-500 pl-1">*</small>
+        </label>
+        <select
+          id="studyLevel" 
+          name="studyLevel"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="university">Universitarios</option>
+          <option value="fp">Formación profesional</option>
+          <option value="secondary">Secundaria</option>
+          <option value="other">Otros</option>
+        </select>
+        <label for="studyName" class="block text-sm font-medium my-1 mt-4 relative">
+          Nombre de los estudios <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="text"
+          name="studyName"
+          id="studyName"
+          autocomplete="off"
+          placeholder="Grado de Ciencia e Ingeniería de Datos"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <label for="year" class="block text-sm font-medium my-1 mt-4">
+          Curso <small class="text-red-500 pl-1">*</small>
+        </label>
+        <select
+          id="year" 
+          name="year"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="university">1º</option>
+          <option value="fp">2º</option>
+          <option value="secondary">3º</option>
+          <option value="other">4º</option>
+          <option value="other">No aplica</option>
+        </select>
+        <label for="city" class="block text-sm font-medium my-1 mt-4 relative">
+          Ciudad de residencia <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="text"
+          name="city"
+          id="city"
+          autocomplete="off"
+          placeholder="A Coruña"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
+        <label for="genre" class="block text-sm font-medium my-1 mt-4">
+          Género <small class="text-red-500 pl-1">*</small>
+          <span class="ml-2 text-gray-500 hover:text-gray-700 cursor-help group relative text-small">
+            <Icon name="tabler:help" class="w-4 h-4 mb-1 inline" />
+            <span class="absolute w-64 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 -mt-12 ml-16 hidden group-hover:block">
+              Requerido por la Xunta a nivel estadístico.
+            </span>
+          </span>
+        </label>
+        <select
+          id="genre" 
+          name="genre"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="man">Hombre</option>
+          <option value="woman">Mujer</option>
+          <option value="nonbinary">No binario</option>
+          <option value="unspecified">Prefiero no decirlo</option>
+          <option value="other">Otro</option>
+        </select>
+        <label for="food" class="block text-sm font-medium my-1 mt-4">
+          Restricciones alimentarias <small class="text-red-500 pl-1">*</small>
+        </label>
+        <select
+          id="food" 
+          name="food"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="nothing">Sin restricciones</option>
+          <option value="vegetarian">Vegetariano</option>
+          <option value="vegan">Vegano</option>
+          <option value="celiac">Sin gluten</option>
+          <option value="other">Otras</option>
+        </select>
+        <label for="ects" class="block text-sm font-medium my-1 mt-4">
+          Solicitar créditos ECTS <small class="text-red-500 pl-1">*</small>
+          <span class="ml-2 text-gray-500 hover:text-gray-700 cursor-help group relative text-small">
+            <Icon name="tabler:help" class="w-4 h-4 mb-1 inline" />
+            <span class="absolute w-64 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 -mt-12 ml-16 hidden group-hover:block">
+              Estudiantes de la UDC podrán solicitar hasta 3 ECTS.
+            </span>
+          </span>
+        </label>
+        <select
+          id="ects" 
+          name="ects"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="yes">Si, deseo solicitar los 3 ECTS.</option>
+          <option value="no">No.</option>
+        </select>
+        <label for="sleep" class="block text-sm font-medium my-1 mt-4">
+          ¿Necesitas un lugar para dormir? <small class="text-red-500 pl-1">*</small>
+          <span class="ml-2 text-gray-500 hover:text-gray-700 cursor-help group relative text-small">
+            <Icon name="tabler:help" class="w-4 h-4 mb-1 inline" />
+            <span class="absolute w-64 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 -mt-12 ml-16 hidden group-hover:block">
+              Durante el evento, puede que necesites descansar. Indica si tienes o no un sitio para dormir en Coruña.
+            </span>
+          </span>
+        </label>
+        <select
+          id="sleep" 
+          name="sleep"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="yes">Si, necesito donde dormir.</option>
+          <option value="no">No, ya tengo donde dormir en Coruña.</option>
+        </select>
+        <label for="cv" class="block text-sm font-medium my-1 mt-4">
+          Currículum vitae (PDF) <small class="text-red-500 pl-1">*</small>
+          <span class="ml-2 text-gray-500 hover:text-gray-700 cursor-help group relative text-small">
+            <Icon name="tabler:help" class="w-4 h-4 mb-1 inline" />
+            <span class="absolute w-64 bg-gray-800 text-white text-xs rounded-lg py-2 px-3 -mt-12 ml-16 hidden group-hover:block">
+              En caso de tener más solicitudes que plazas, se utilizará para balancear el nivel de los participantes.
+            </span>
+          </span>
+        </label>
+        <input 
+          type="file" 
+          id="cv" 
+          name="cv"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 file:border-none file:text-white file:bg-gray-600 file:py-1 file:px-2 file:rounded-lg"
+        />
+        <div class="block my-4">
+          <label for="sharecv" class="flex items-center">
+            <input 
+              type="checkbox" 
+              id="sharecv" 
+              name="sharecv"
+              checked
+              class="text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <span class="ml-2 text-sm font-medium text-gray-700">Quiero compartir el CV con las empresas patrocinadoras.</span>
+          </label>
+        </div>
+        <hr>
+        <div class="block my-4">
+          <label for="conduct" class="flex items-center">
+            <input 
+              type="checkbox" 
+              id="conduct" 
+              name="conduct"
+              class="text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <span class="ml-2 text-sm font-medium text-gray-700">Acepto el <a href={getPermalink('/codigo-conducta')} class="underline">código de conducta</a>.</span>
+          </label>
+        </div>
+        <div class="block my-4">
+          <label for="studyCheck" class="flex items-center">
+            <input 
+              type="checkbox" 
+              id="studyCheck" 
+              name="studyCheck"
+              class="text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <span class="ml-2 text-sm font-medium text-gray-700">Acepto que se me podrá solicitar justificar la condición de estudiante antes del inicio del evento.</span>
+          </label>
+        </div>
         <div class="mt-5">
-          <button class="btn-primary w-full" id="submit">
-            Avísame <Icon name="tabler:bell-ringing" class="w-6 h-6 pl-2" />
+          <button class="btn-primary w-full" id="submit" type="submit">
+            Registrarme <Icon name="tabler:user-plus" class="w-6 h-6 pl-2" />
           </button>
         </div>
         <div class="mt-3 text-center">
@@ -52,13 +261,13 @@ const metadata = {
         <div class="flex justify-center">
           <Icon name="tabler:circle-x" class="w-24 h-24 text-red-800" />
         </div>
-        <p class="text-xl">Ha habido un error, inténtalo de nuevo mas tarde o contáctanos por correo directamente.</p>
+        <p class="text-xl">Ha habido un error, inténtalo de nuevo mas tarde o contáctanos por correo.</p>
       </div>
     </div>
   </div>
 
 
-  <Steps
+  <!-- <Steps
     title="Datos que puedes ir preparando:"
     items={[
       {
@@ -80,7 +289,7 @@ const metadata = {
         icon: 'tabler:code',
       },
     ]}
-  />
+  /> -->
 
   <Note icon="tabler:shield-heart">
     <Fragment slot="content">
@@ -146,7 +355,7 @@ const metadata = {
 
     // Send POST request
     try {
-      await postData('https://n8n.jorgeteixeira.es/webhook/hackudc-waitlist-registro', data);
+      // await postData('https://n8n.jorgeteixeira.es/webhook/hackudc-waitlist-registro', data);
       // Handle success
       submitBtn.textContent = 'Enviado';
       form.classList.add("hidden");
