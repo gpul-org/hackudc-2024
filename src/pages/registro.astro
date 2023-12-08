@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Headline from '~/components/blog/Headline.astro';
 import Note from '~/components/widgets/Note.astro';
-// import Steps from '~/components/widgets/Steps.astro';
+import Steps from '~/components/widgets/Steps.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import { getPermalink } from '~/utils/permalinks';
 
@@ -245,6 +245,16 @@ const metadata = {
           </label>
         </div>
         <hr>
+        <label for="why" class="block text-sm font-medium my-1 mt-4">
+          ¿Por qué quieres participar en HackUDC? <small class="text-red-500 pl-1">*</small>
+        </label>
+        <textarea
+          name="why"
+          id="why"
+          rows="4"
+          placeholder="Escribe aquí tus motivos..."
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
         <div class="block my-4">
           <label for="conduct" class="flex items-center">
             <input 
@@ -292,29 +302,29 @@ const metadata = {
   </div>
 
 
-  <!-- <Steps
-    title="Datos que puedes ir preparando:"
+  <Steps
+    title="Próximos pasos:"
     items={[
       {
-        title: 'Justificación de la condición de estudiante',
+        title: 'Análisis de tu solicitud',
         description:
-          "Para participar, necesitarás verificar tu condición de estudiante. Esto se puede hacer enviando una copia de tu matrícula, tarjeta universitaria escaneada, o cualquier otro documento oficial que lo acredite. Recuerda, la participación está abierta a estudiantes de todos los niveles educativos, no solo universitarios.",
-        icon: 'tabler:school',
+          "Una vez que hayas enviado tu formulario, nuestro equipo revisará detenidamente tu solicitud. Analizaremos tus datos, experiencia y motivaciones para participar en HackUDC. Este proceso puede tardar unos días, así que te pedimos paciencia. Asegúrate de haber completado todos los campos correctamente para evitar retrasos.",
+        icon: 'tabler:analyze',
       },
       {
-        title: 'Currículum vitae',
+        title: 'Confirmación de aceptación',
         description:
-          "Para tu inscripción, requerimos tu CV en formato PDF. Como una opción adicional, si lo deseas, podemos compartirlo con los patrocinadores del evento. No te preocupes si tienes poca experiencia; es normal al principio. Considera esto como una oportunidad para elaborar y mejorar tu primer CV.",
-        icon: 'tabler:file-cv',
+          "Después de revisar tu solicitud, te informaremos por correo electrónico si has sido seleccionado para participar en HackUDC. Si es así, recibirás una confirmación oficial con los pasos a seguir. Te recomendamos que revises tu correo electrónico regularmente para no perderte esta importante notificación.",
+        icon: 'tabler:message',
       },
       {
-        title: 'Motivación para participar en HackUDC',
+        title: 'Información detallada del evento',
         description:
-          'Dado que las plazas son limitadas, si recibimos más solicitudes de las que podemos aceptar, seleccionaremos a los participantes en base a las razones que nos proporcionen para querer participar. Cuéntanos por qué quieres ser parte de HackUDC y qué te motiva a unirte.',
-        icon: 'tabler:code',
+          'Una vez aceptado en HackUDC, te enviaremos toda la información relevante sobre el evento. Esto incluirá detalles como el programa, las actividades planificadas, y cualquier otra información logística necesaria. Mantente atento a tu correo electrónico para recibir esta información esencial y prepárate para una experiencia inolvidable.',
+        icon: 'tabler:calendar-event',
       },
     ]}
-  /> -->
+  />
 
   <Note icon="tabler:shield-heart">
     <Fragment slot="content">
