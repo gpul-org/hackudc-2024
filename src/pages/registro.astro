@@ -99,6 +99,17 @@ const metadata = {
           placeholder="Grado de Ciencia e Ingeniería de Datos"
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
         />
+        <label for="studyInstitution" class="block text-sm font-medium my-1 mt-4 relative">
+          Institución de los estudios <small class="text-red-500 pl-1">*</small>
+        </label>
+        <input
+          type="text"
+          name="studyInstitution"
+          id="studyInstitution"
+          autocomplete="off"
+          placeholder="UDC"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+        />
         <label for="year" class="block text-sm font-medium my-1 mt-4">
           Curso <small class="text-red-500 pl-1">*</small>
         </label>
@@ -107,11 +118,11 @@ const metadata = {
           name="year"
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
           <option value=""></option>
-          <option value="university">1º</option>
-          <option value="fp">2º</option>
-          <option value="secondary">3º</option>
-          <option value="other">4º</option>
-          <option value="other">No aplica</option>
+          <option value="first">1º</option>
+          <option value="second">2º</option>
+          <option value="third">3º</option>
+          <option value="fourth">4º</option>
+          <option value="notapplicable">No aplica</option>
         </select>
         <label for="city" class="block text-sm font-medium my-1 mt-4 relative">
           Ciudad de residencia <small class="text-red-500 pl-1">*</small>
@@ -192,6 +203,20 @@ const metadata = {
           <option value="yes">Si, necesito donde dormir.</option>
           <option value="no">No, ya tengo donde dormir en Coruña.</option>
         </select>
+        <label for="tshirt" class="block text-sm font-medium my-1 mt-4">
+          Talla de camiseta <small class="text-red-500 pl-1">*</small>
+        </label>
+        <select
+          id="tshirt" 
+          name="tshirt"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+          <option value=""></option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <option value="XXL">XXL</option>
+        </select>
         <label for="cv" class="block text-sm font-medium my-1 mt-4">
           Currículum vitae (PDF) <small class="text-red-500 pl-1">*</small>
           <span class="ml-2 text-gray-500 hover:text-gray-700 cursor-help group relative text-small">
@@ -228,7 +253,7 @@ const metadata = {
               name="conduct"
               class="text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             />
-            <span class="ml-2 text-sm font-medium text-gray-700">Acepto el <a href={getPermalink('/codigo-conducta')} class="underline">código de conducta</a>.</span>
+            <span id="conductText"  class="ml-2 text-sm font-medium text-gray-700">Acepto el <a href={getPermalink('/codigo-conducta')} class="underline">código de conducta</a>.</span>
           </label>
         </div>
         <div class="block my-4">
@@ -239,7 +264,7 @@ const metadata = {
               name="studyCheck"
               class="text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
             />
-            <span class="ml-2 text-sm font-medium text-gray-700">Acepto que se me podrá solicitar justificar la condición de estudiante antes del inicio del evento.</span>
+            <span id="studyCheckText" class="ml-2 text-sm font-medium text-gray-700">Acepto que se me podrá solicitar justificar la condición de estudiante antes del inicio del evento.</span>
           </label>
         </div>
         <div class="mt-5">
@@ -304,69 +329,78 @@ const metadata = {
   const successDiv = document.getElementById("success") as HTMLDivElement;
   const errorDiv = document.getElementById("error") as HTMLDivElement;
   const submitBtn = document.getElementById("submit") as HTMLButtonElement;
-  const emailInput = document.getElementById('email') as HTMLInputElement;
 
-  async function postData(url = '', data = {}) {
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
+  document.getElementById('form')?.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    if (response.status !== 200) {
-      throw new Error('Status not 200');
-    } 
-
-    return response.json();
-  }
-
-  submitBtn?.addEventListener("click", async (event) => {
-    event.preventDefault();
-
-    // Remove existing red borders
-    [emailInput].forEach(input => {
-      input?.classList.remove('border-red-500');
-    });
-
-    // Validate fields and add red borders to empty ones
     let isValid = true;
 
-    // Validate email
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(emailInput?.value.trim())) {
-      emailInput.classList.add('border-red-500');
+    // Clear previous error indications
+    this.querySelectorAll('.border-red-500').forEach(el => {
+        el.classList.remove('border-red-500');
+    });
+    this.querySelectorAll('.text-red-500').forEach(el => {
+        el.classList.remove('text-red-500');
+    });
+
+    // Validate text inputs, selects and file input
+    this.querySelectorAll('input[type="text"], input[type="email"], input[type="number"], select, input[type="file"]').forEach((el: HTMLFormElement) => {
+        if (!el.value) {
+            el.classList.add('border-red-500');
+            isValid = false;
+        }
+    });
+
+    const conductCheckbox = this.querySelector('#conduct') as HTMLFormElement;
+    const studyCheckbox = this.querySelector('#studyCheck') as HTMLFormElement;
+    const conductCheckboxText = this.querySelector('#conductText') as HTMLElement;
+    const studyCheckboxText = this.querySelector('#studyCheckText') as HTMLElement;
+
+    // Validate checkboxes
+    if (!conductCheckbox.checked) {
+      conductCheckboxText.classList.add('text-red-500');
+      isValid = false;
+    }
+    if (!studyCheckbox.checked) {
+      studyCheckboxText.classList.add('text-red-500');
       isValid = false;
     }
 
-    if (!isValid) {
-      return;
-    }
+    if (isValid) {
+      const formRef = this as HTMLFormElement;
+      const formData = new FormData(formRef);
 
-    // Disable the button and show loading state
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando...';
+      // Define the URL of your backend endpoint
+      const url = 'https://n8n.jorgeteixeira.es/webhook/hackudc-registro';
 
-    // Your form data
-    const data = {
-      email: emailInput.value,
-    };
-
-    // Send POST request
-    try {
-      // await postData('https://n8n.jorgeteixeira.es/webhook/hackudc-waitlist-registro', data);
-      // Handle success
-      submitBtn.textContent = 'Enviado';
-      form.classList.add("hidden");
-      successDiv.classList.toggle("hidden");
-      successDiv.classList.add("flex");
-    } catch (error) {
-      // Handle error (optional)
-      submitBtn.textContent = 'Error';
-      form.classList.add("hidden");
-      errorDiv.classList.toggle("hidden");
-      errorDiv.classList.add("flex");
+      // Use fetch to send the formData
+      fetch(url, {
+          method: 'POST',
+          body: formData  // Send the formData directly
+      })
+      .then(response => {
+        if (response.status != 200) {
+          throw Error('No se ha podido enviar.')
+        }
+        return response
+      })
+      .then(response => response.json())
+      .then(data => {
+          console.error('Success:', data);
+          // Handle success here
+          submitBtn.textContent = 'Enviado';
+          form.classList.add("hidden");
+          successDiv.classList.toggle("hidden");
+          successDiv.classList.add("flex");
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+          // Handle errors here
+          submitBtn.textContent = 'Error';
+          form.classList.add("hidden");
+          errorDiv.classList.toggle("hidden");
+          errorDiv.classList.add("flex");
+      });
     }
   });
 </script>
