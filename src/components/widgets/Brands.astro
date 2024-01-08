@@ -28,8 +28,8 @@ const {
       oro.map(
           (image) =>
             image.src && (
-              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                { image.href ? <a href={image.href}>
+              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200 grayscale hover:grayscale-0">
+                { image.href ? <a href={image.href} target="_blank">
                   <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
                 </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
               </div>
@@ -45,7 +45,7 @@ const {
           (image) =>
             image.src && (
               <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                { image.href ? <a href={image.href}>
+                { image.href ? <a href={image.href} target="_blank">
                   <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
                 </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
               </div>
@@ -53,7 +53,7 @@ const {
         )
     }
   </div>
-  <div class="mt-5 text-center text-xl dark:text-gray-300 font-medium mb-2">Bronce</div>
+  {bronce.length !== 0 && <div class="mt-5 text-center text-xl dark:text-gray-300 font-medium mb-2">Bronce</div>}
   <div class="flex flex-wrap justify-center gap-x-6 sm:gap-x-12 lg:gap-x-24">
     {
       bronce &&
@@ -77,7 +77,7 @@ const {
           (image) =>
             image.src && (
               <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                { image.href ? <a href={image.href}>
+                { image.href ? <a href={image.href} target="_blank">
                   <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
                 </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
               </div>

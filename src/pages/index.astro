@@ -13,6 +13,7 @@ import Note from '~/components/widgets/Note.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 import proximamenteImage from '~/assets/images/proximamente.jpeg';
+import codee from '~/assets/images/codee.png';
 import logoFIC from '~/assets/images/fic.svg';
 import logoUDC from '~/assets/images/udc.svg';
 import logoAmtega from '~/assets/images/amtega.svg';
@@ -102,9 +103,9 @@ title="Patrocinadores & Colaboradores"
 subtitle="El evento no habría sido posible sin la ayuda de las siguientes empresas y entidades:"
 oro={[
   {
-    src: proximamenteImage,
-    alt: 'Próximamente',
-
+    src: codee,
+    alt: 'Appentra Codee',
+    href: 'https://codee.com/'
   },
   {
     src: proximamenteImage,
@@ -143,26 +144,6 @@ plata={[
     alt: 'Próximamente',
     width: 120,
     height: 120,
-  },
-]}
-bronce={[
-  {
-    src: proximamenteImage,
-    alt: 'Próximamente',
-    width: 90,
-    height: 90,
-  },
-  {
-    src: proximamenteImage,
-    alt: 'Próximamente',
-    width: 90,
-    height: 90,
-  },
-  {
-    src: proximamenteImage,
-    alt: 'Próximamente',
-    width: 90,
-    height: 90,
   },
 ]}
 colaboradores={[
