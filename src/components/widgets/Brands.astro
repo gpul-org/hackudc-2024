@@ -28,8 +28,8 @@ const {
       oro.map(
           (image) =>
             image.src && (
-              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200 grayscale hover:grayscale-0">
-                { image.href ? <a href={image.href} target="_blank">
+              <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
+                { image.href ? <a href={image.href} target="_blank" class="grayscale hover:grayscale-0">
                   <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
                 </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
               </div>
@@ -45,7 +45,7 @@ const {
           (image) =>
             image.src && (
               <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                { image.href ? <a href={image.href} target="_blank">
+                { image.href ? <a href={image.href} target="_blank"  class="grayscale hover:grayscale-0">
                   <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
                 </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
               </div>
@@ -61,7 +61,7 @@ const {
           (image) =>
             image.src && (
               <div class="flex flex-col justify-center col-span-1 my-2 lg:my-4 py-1 px-3 rounded-md dark:bg-gray-200">
-                { image.href ? <a href={image.href}>
+                { image.href ? <a href={image.href} class="grayscale hover:grayscale-0">
                   <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} />
                 </a> : <Image src={image.src} alt={image.alt || ''} height={image.height || 200} width={image.width || 200} /> }
               </div>
