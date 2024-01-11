@@ -15,8 +15,8 @@ export const headerData = {
       href: getPermalink('#faq'),
     },
     {
-      text: 'Patrocinar',
-      href: getPermalink('/patrocinar'),
+      text: 'Patrocinadores',
+      href: getPermalink('/patrocinadores'),
     },
     {
       text: 'Contacto',
