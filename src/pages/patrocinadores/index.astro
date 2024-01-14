@@ -1,0 +1,57 @@
+---
+import gradiantLogo from '~/assets/images/gradiant.png';
+import bizawayLogo from '~/assets/images/bizaway.svg';
+import codeeLogo from '~/assets/images/codee.png';
+
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+
+export const companies = [
+  {
+    name: 'Codee',
+    href: 'codee',
+    description: 'Codee es una empresa DeepTech de A Coruña pionera en una innovación...',
+    image: codeeLogo,
+  },
+  {
+    name: 'BizAway',
+    href: 'bizaway',
+    description: 'BizAway es una agencia de viajes de negocios con sedes en España...',
+    image: bizawayLogo,
+  },
+  {
+    name: 'Gradiant',
+    href: 'gradiant',
+    description: 'Gradiant es un centro tecnológico privado que aporta su expertise en tecnologías de...',
+    image: gradiantLogo,
+  },
+];
+---
+
+<Layout metadata={{ title: 'Patrocinadores' }}>
+  <div class="mt-10">
+    <Headline title="Patrocinadores" />
+  </div>
+  <div class="max-w-screen-md flex flex-col space-y-10">
+    {
+      companies.map((c) => {
+        return (
+          <div>
+            <a href={`/patrocinadores/${c.href}`} class="">
+              <div class="border rounded-md flex">
+                <div class="">
+                  <Image src={c.image} alt={`${c.name} Image`} width={200} style="box-shadow: none !important" />
+                </div>
+                <div>
+                  <h3 class="font-semibold text-2xl">{c.name}</h3>
+                  <p class="text-gray-600">{c.description}</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        );
+      })
+    }
+  </div>
+</Layout>
