@@ -7,7 +7,7 @@ import { Image } from 'astro:assets';
 import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
 
-export const companies = [
+export const goldSponsors = [
   {
     name: 'Codee',
     href: 'codee',
@@ -36,7 +36,7 @@ export const companies = [
   <div class="text-center font-semibold text-3xl mb-5">🥇 Oro</div>
   <div class="max-w-screen-md mx-auto grid grid-cols-2 gap-10 mb-10">
     {
-      companies.map((c) => {
+      goldSponsors.map((c) => {
         return (
           <a href={`/patrocinadores/${c.href}`} class="">
             <div class="border rounded-lg mx-2 flex flex-col align-middle text-center justify-center h-[120px] hover:bg-slate-50 transition-colors">
