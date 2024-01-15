@@ -1,0 +1,58 @@
+---
+import gradiantLogo from '~/assets/images/gradiant.png';
+import bizawayLogo from '~/assets/images/bizaway.svg';
+import codeeLogo from '~/assets/images/codee.png';
+
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+
+export const goldSponsors = [
+  {
+    name: 'Codee',
+    href: 'codee',
+    description: 'Codee es una empresa DeepTech de A Coruña pionera en una innovación...',
+    image: codeeLogo,
+  },
+  {
+    name: 'BizAway',
+    href: 'bizaway',
+    description: 'BizAway es una agencia de viajes de negocios con sedes en España...',
+    image: bizawayLogo,
+  },
+  {
+    name: 'Gradiant',
+    href: 'gradiant',
+    description: 'Gradiant es un centro tecnológico privado que aporta su expertise en tecnologías de...',
+    image: gradiantLogo,
+  },
+];
+---
+
+<Layout metadata={{ title: 'Patrocinadores' }}>
+  <div class="mt-10 -mb-5">
+    <Headline title="Patrocinadores" />
+  </div>
+  <div class="text-center font-semibold text-3xl mb-5">🥇 Oro</div>
+  <div class="max-w-screen-md mx-auto grid grid-cols-2 gap-10 mb-10">
+    {
+      goldSponsors.map((c) => {
+        return (
+          <a href={`/patrocinadores/${c.href}`} class="">
+            <div class="border rounded-lg mx-2 flex flex-col align-middle text-center justify-center h-[120px] hover:bg-slate-50 transition-colors">
+              <Image
+                src={c.image}
+                alt={`${c.name} Image`}
+                width={200}
+                style="box-shadow: none !important"
+                class:list={'mx-auto'}
+              />
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+  <div class="text-center font-semibold text-3xl mb-5">🥈 Plata</div>
+  <div class="text-center font-semibold text-3xl mb-5">🥉 Bronce</div>
+</Layout>
