@@ -30,28 +30,29 @@ export const companies = [
 ---
 
 <Layout metadata={{ title: 'Patrocinadores' }}>
-  <div class="mt-10">
+  <div class="mt-10 -mb-5">
     <Headline title="Patrocinadores" />
   </div>
-  <div class="max-w-screen-md flex flex-col space-y-10">
+  <div class="text-center font-semibold text-3xl mb-5">🥇 Oro</div>
+  <div class="max-w-screen-md mx-auto grid grid-cols-2 gap-10 mb-10">
     {
       companies.map((c) => {
         return (
-          <div>
-            <a href={`/patrocinadores/${c.href}`} class="">
-              <div class="border rounded-md flex">
-                <div class="">
-                  <Image src={c.image} alt={`${c.name} Image`} width={200} style="box-shadow: none !important" />
-                </div>
-                <div>
-                  <h3 class="font-semibold text-2xl">{c.name}</h3>
-                  <p class="text-gray-600">{c.description}</p>
-                </div>
-              </div>
-            </a>
-          </div>
+          <a href={`/patrocinadores/${c.href}`} class="">
+            <div class="border rounded-lg mx-2 flex flex-col align-middle text-center justify-center h-[120px] hover:bg-slate-50 transition-colors">
+              <Image
+                src={c.image}
+                alt={`${c.name} Image`}
+                width={200}
+                style="box-shadow: none !important"
+                class:list={'mx-auto'}
+              />
+            </div>
+          </a>
         );
       })
     }
   </div>
+  <div class="text-center font-semibold text-3xl mb-5">🥈 Plata</div>
+  <div class="text-center font-semibold text-3xl mb-5">🥉 Bronce</div>
 </Layout>
