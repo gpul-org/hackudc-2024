@@ -4,6 +4,8 @@ import bizawayLogo from '~/assets/images/bizaway.svg';
 import codeeLogo from '~/assets/images/codee.png';
 import disashopLogo from '~/assets/images/disashop.png';
 
+import denodoLogo from '~/assets/images/denodo.png';
+
 import { Image } from 'astro:assets';
 import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
@@ -30,6 +32,14 @@ export const goldSponsors = [
     image: disashopLogo,
   },
 ];
+
+export const silverSponsors = [
+  {
+    name: 'Denodo',
+    href: 'denodo',
+    image: denodoLogo,
+  }
+]
 ---
 
 <Layout metadata={{ title: 'Patrocinadores' }}>
@@ -57,5 +67,24 @@ export const goldSponsors = [
     }
   </div>
   <div class="text-center font-semibold text-3xl mb-5">🥈 Plata</div>
+  <div class="max-w-screen-md mx-auto grid grid-cols-2 gap-y-4 sm:gap-10 mb-10">
+    {
+      silverSponsors.map((c) => {
+        return (
+          <a href={`/patrocinadores/${c.href}`} class="">
+            <div class="border rounded-lg mx-2 flex flex-col align-middle text-center justify-center h-[120px] px-1 hover:bg-slate-50 transition-colors">
+              <Image
+                src={c.image}
+                alt={`${c.name} Image`}
+                width={200}
+                style="box-shadow: none !important"
+                class:list={'mx-auto'}
+              />
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
   <div class="text-center font-semibold text-3xl mb-5">🥉 Bronce</div>
 </Layout>
