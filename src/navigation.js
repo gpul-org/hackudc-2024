@@ -23,7 +23,7 @@ export const headerData = {
       href: getPermalink('/contacto'),
     },
   ],
-  actions: [{ text: 'Registro', href: getPermalink('/registro') }],
+  actions: [{ text: 'Información', href: getPermalink('/informacion') }],
 };
 
 export const footerData = {
