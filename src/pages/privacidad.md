@@ -3,13 +3,13 @@ title: 'Política de privacidad'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Última actualización_: 01/12/2023
+_Última actualización_: 27/01/2023
 
 En cumplimiento con la normativa vigente sobre protección de datos personales, se le informa de los siguientes aspectos:
 
 ## Responsable del tratamiento
 
-La Asociación Grupo de Programadores y Usuarios de Linux (en adelante, "GPUL") con NIF G15659220 y dirección en la _Facultad de Informática, Campus de Elviña S/N, 15071, A Coruña_ es la Responsable del tratamiento de sus datos personales.
+La Asociación Grupo de Programadores y Usuarios de Linux (en adelante, "GPUL") con NIF G15659220 y dirección en la _Facultad de Informática, Campus de Elviña S/N, 15007, A Coruña_ es la Responsable del tratamiento de sus datos personales.
 
 Puede contactar a GPUL en la dirección postal anteriormente indicada o en la siguiente dirección de correo electrónico para cualquier consulta, solicitud o aclaración relacionada con el tratamiento de sus datos personales: hackudc@gpul.org.
 
