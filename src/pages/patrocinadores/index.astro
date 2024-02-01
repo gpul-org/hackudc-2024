@@ -10,6 +10,8 @@ import cicasLogo from '~/assets/images/cicas.png';
 import nttdataLogo from '~/assets/images/nttdata.svg';
 import roommatikLogo from '~/assets/images/roommatik.png';
 
+import duacodeLogo from '~/assets/images/duacode.png';
+
 import { Image } from 'astro:assets';
 import Layout from '~/layouts/PageLayout.astro';
 import Headline from '~/components/blog/Headline.astro';
@@ -64,6 +66,14 @@ export const silverSponsors = [
     image: roommatikLogo,
   }
 ]
+
+const bronzeSponsors = [
+{
+    name: 'Duacode',
+    href: 'duacode',
+    image: duacodeLogo,
+  }
+]
 ---
 
 <Layout metadata={{ title: 'Patrocinadores' }}>
@@ -111,4 +121,24 @@ export const silverSponsors = [
     }
   </div>
   <div class="text-center font-semibold text-3xl mb-5">🥉 Bronce</div>
+  <div class="max-w-screen-md mx-auto grid grid-cols-4 gap-y-4 sm:gap-10 mb-10">
+    <div class="col-span-1"></div>
+    {
+      bronzeSponsors.map((c) => {
+        return (
+          <a href={`/patrocinadores/${c.href}`} class="col-span-2 ">
+            <div class="border rounded-lg mx-2 flex flex-col align-middle text-center justify-center h-[120px] px-1 hover:bg-slate-50 transition-colors">
+              <Image
+                src={c.image}
+                alt={`${c.name} Image`}
+                width={200}
+                style="box-shadow: none !important"
+                class:list={'mx-auto'}
+              />
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
 </Layout>
