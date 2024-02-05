@@ -1,0 +1,35 @@
+---
+layout: '~/layouts/MarkdownLayout.astro'
+---
+
+import inditexLogo from '~/assets/images/inditex.svg';
+import inditexVideo from '~/assets/video/inditex-video.mp4';
+
+import { Image } from 'astro:assets';
+
+<Image src={inditexLogo} alt="Inditex LOGO" height="200" width="400" style="box-shadow: none !important" />
+
+<div class="flex flex-col sm:flex-row gap-4">
+    <div>
+        <video controls="" autoplay="" transition:persist>
+            <source src={inditexVideo} type="video/mp4"></source>
+        </video>
+    </div>
+    <div class="flex flex-col justify-between w-1/2">
+        <div>
+            Los equipos de InditexTech impulsan la tecnología de Inditex.
+            Su misión es crear experiencias de usuario únicas, ofreciendo productos digitales de alta calidad,
+            con un diseño diferencial y un backend robusto. Descubre qué hacen y únete a su equipo.
+        </div>
+        <div>
+            Enlaces:
+
+            - Talento: https://www.zaratalent.com/es/tech/
+        </div>
+    </div>
+</div>
+
+
+
+
+
