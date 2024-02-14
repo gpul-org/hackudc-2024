@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/blog/Headline.astro';
+import Note from '~/components/widgets/Note.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const title = `Información`;
+---
+
+<Layout metadata={{ title }}>
+  <div class="my-5">
+    <Headline
+      title="Información del evento"
+      subtitle="Recuerda unirte al <a href='https://t.me/hackudc2024' class='underline'>canal de telegram</a> para recibir las novedades."
+    />
+  </div>
+
+  <div class="max-w-screen-sm mx-auto grid grid-cols-2 justify-center gap-2 px-4 mb-[80px]">
+    <a href="/informacion/general">
+      <div class="border text-center p-2.5 rounded-md hover:bg-slate-50 flex flex-col gap-2">
+        <div class="flex justify-center"><Icon name="tabler:info-triangle" size={30} class="text-slate-800" /></div>
+        General
+      </div>
+    </a>
+    <a href="/informacion/horario">
+      <div class="border text-center p-2.5 rounded-md hover:bg-slate-50 flex flex-col gap-2">
+        <div class="flex justify-center"><Icon name="tabler:clock-2" size={30} class="text-slate-800" /></div>
+        Horarios
+      </div>
+    </a>
+    <a href="/informacion/reglas">
+      <div class="border text-center p-2.5 rounded-md hover:bg-slate-50 flex flex-col gap-2">
+        <div class="flex justify-center"><Icon name="tabler:gavel" size={30} class="text-slate-800" /></div>
+        Reglas
+      </div>
+    </a>
+    <a href="/informacion/retos-premios">
+      <div class="border text-center p-2.5 rounded-md hover:bg-slate-50 flex flex-col gap-2">
+        <div class="flex justify-center"><Icon name="tabler:award" size={30} class="text-slate-800" /></div>
+        Retos y premios
+      </div>
+    </a>
+    <a href="/informacion/charlas">
+      <div class="border text-center p-2.5 rounded-md hover:bg-slate-50 flex flex-col gap-2">
+        <div class="flex justify-center"><Icon name="tabler:clock-play" size={30} class="text-slate-800" /></div>
+        Charlas patrocinadores
+      </div>
+    </a>
+    <a href="/informacion/transporte">
+      <div class="border text-center p-2.5 rounded-md hover:bg-slate-50 flex flex-col gap-2">
+        <div class="flex justify-center"><Icon name="tabler:bus" size={30} class="text-slate-800" /></div>
+        Transporte
+      </div>
+    </a>
+  </div>
+
+
+
+  <Note icon="tabler:shield-heart">
+    <Fragment slot="content">
+      Puedes leer la <a href={getPermalink("/privacidad")} class="underline">política de privacidad</a> y el <a href={getPermalink("/codigo-conducta")} class="underline">código de conducta</a>.
+    </Fragment>
+  </Note>
+</Layout>
