@@ -1,0 +1,93 @@
+---
+layout: '~/layouts/MarkdownLayout.astro'
+title: 'Retos y premios'
+---
+
+import gpulLogo from '~/assets/images/gpul.png';
+import inditexLogo from '~/assets/images/inditex.svg';
+import codeeLogo from '~/assets/images/codee.png';
+import disashopLogo from '~/assets/images/disashop.png';
+import gradiantLogo from '~/assets/images/gradiant.png';
+import bizawayLogo from '~/assets/images/bizaway.svg';
+
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
+
+## Mejor proyecto libre
+<div class="flex gap-4 flex-wrap">
+    <Image src={gpulLogo} alt="LOGO" height="75" width="75" style="box-shadow: none !important" />
+    <div class="flex flex-col justify-center">
+        <Icon name="tabler:ampersand" class="w-6 h-6" />
+    </div>
+    <Image src={inditexLogo} alt="LOGO" height="150" width="150" style="box-shadow: none !important" />
+</div>
+
+Crea un proyecto Open Source con tus compañeros de equipo. Además podrás desarrollar un proyecto
+acorde a unos retos propuestos por nuestros patrocinadores y premios!
+
+Grupo: https://t.me/+NxjR-9DIrus4OWU8
+
+## Integración Continua y análisis estático del rendimiento y la calidad del código
+<Image src={codeeLogo} alt="LOGO" height="150" width="150" style="box-shadow: none !important" />
+
+Desde Codee queremos proponeros este desafío que esperemos que cambie la
+forma en que percibís el rendimiento y la calidad del código C y C++.
+
+¿Qué os pedimos? Os desafiamos a crear una *pipeline* de Integración Continua (CI)
+diseñada para impulsar la excelencia en proyectos escritos en C y C++.
+Como *software* de CI, os pedimos que utilicéis
+[Buildbot](https://buildbot.net/). Para evaluar el rendimiento y
+la calidad del *software* C y C++, utilizad
+[Codee](https://codee.com/wp-content/uploads/2024/02/codee-2024.1.1-HackUDC.zip).
+
+¡Animaos y demostrad vuestra habilidad para simplificar y mejorar el desarrollo de código C y C++!
+
+Grupo: https://t.me/+FAe2uqGKP1Q0YWY0
+
+
+## ElectroDatos: ¡Haz magia con tu factura eléctrica!
+<Image src={gradiantLogo} alt="LOGO" height="150" width="150" style="box-shadow: none !important" />
+
+Un usuario sube un archivo con sus datos de consumo eléctrico. Hacer una aplicación (móvil, web, etc)
+que proporcione al usuario información útil que le ayude, por ejemplo, a:
+
+- Comprender cómo consume energía
+- Ahorrar energía y dinero
+
+Descripción:
+A partir de un dataset de consumos horarios de electricidad de varias viviendas, se trata de desarrollar
+“algo” que permita extraer la información contenida en esos datos. Puede ser desde el desarrollo de algoritmos
+de ciencia de datos hasta visualizaciones de los datos en crudo, pero que de algún modo conviertan los datos en
+algo más útil.
+
+Grupo: https://t.me/+QCtg4yEnqv5iODZk
+
+
+## Build a Travel Optimiser
+<Image src={bizawayLogo} alt="LOGO" height="150" width="150" style="box-shadow: none !important" />
+
+The project should solve the problem of gathering an undefined number of people from different start
+points into one place trying to minimise the *environmental* impact.
+Image that you have to go to New York with you and your 5 friends from Porto Airport or nearest airport.
+
+Imagine also that your friends live all in different cities.
+Think also the gathering at the airport, Going all 5 everyone with its own car it have a big environmental impact,
+how we can optimise the transport for having the less environmental impact?
+
+Bonus: Try to thing to move an 100+ employees company with the above premises :-)
+
+Grupo: https://t.me/+AUfTtnWc1Tk3OTNk
+
+## Desarrollo de aplicación móvil con soporte a formularios dinámicos
+<Image src={disashopLogo} alt="LOGO" height="150" width="150" style="box-shadow: none !important" />
+
+El reto consiste en desarrollar una pequeña aplicación multiplataforma (se probará en Android o IOs, el que prefiera
+cada equipo participante) que atacará un API proporcionado por Disashop. Este API dará información sobre la capa de
+presentación y la lógica de uno o varios formularios. Contendrá los campos que tiene cada formulario, el tipo de datos
+que espera, las posibles validaciones y las dependencias que pueda llegar a tener. El objetivo de la aplicación es generar
+una capa visual que sea capaz de conectarse a esta API, presentar los formularios tal como la API indica, y persistir la
+información solicitada contra otro API. Se deberá ser tolerante a los fallos que pueda dar la llamada a la persistencia,
+y se valorará tener la capacidad de usar maestros de datos para dar sugerencias a los usuarios sobre como cubrir cada campo.
+
+Grupo: https://t.me/+eu99EoXagqVmZmJk
