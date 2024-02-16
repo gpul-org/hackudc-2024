@@ -1,0 +1,139 @@
+---
+layout: '~/layouts/MarkdownLayout.astro'
+title: 'Codee'
+---
+
+## ¡Eleva tus proyectos C y C++ a nuevas alturas con Integración Continua y análisis estático del rendimiento y la calidad del código!
+
+Desde Codee queremos proponeros este desafío que esperemos que cambie la
+forma en que percibís el rendimiento y la calidad del código C y C++.
+
+## ¿Qué os pedimos?
+
+Os desafiamos a crear una *pipeline* de Integración Continua (CI)
+diseñada para impulsar la excelencia en proyectos escritos en C y C++.
+Como *software* de CI, os pedimos que utilicéis
+[Buildbot](https://buildbot.net/). Para evaluar el rendimiento y
+la calidad del *software* C y C++, utilizad
+[Codee](https://codee.com/wp-content/uploads/2024/02/codee-2024.1.1-HackUDC.zip).
+
+Vuestra solución debe estar completamente automatizada y generar
+informes innovadores sobre el rendimiento y la calidad del *software*
+analizado.
+
+¡Animaos y demostrad vuestra habilidad para simplificar y mejorar el
+desarrollo de código C y C++!
+
+## Pasos para abordar el desafío
+
+A continuación, describimos los primeros cuatro pasos para abordar este
+desafío. Tened en cuenta que los dos primeros pasos son independientes y
+que podréis trabajar en ellos en paralelo.
+
+### Pasos principales
+
+#### 1. Desplegad un sistema de CI
+
+En este primer paso, montad un sistema de CI con Buildbot. Desplegad un
+nodo *master* y otro *worker*. Empaquetadlo todo con `Docker`, o
+equivalente, y aseguraos de que lanzar el sistema de CI sea tan sencillo
+como ejecutar un *script*. Intentad que toda vuestra infraestructura de
+CI cumpla con la máxima de *Infrastructure as Code*.
+
+No olvidéis documentar y publicar vuestro progreso en GitHub, GitLab u
+otras plataformas similares. Añadid un `README.md` con los pasos
+necesarios para desplegar el sistema de CI. Idealmente, añadid más
+documentos de apoyo y comentarios que justifiquen vuestras diferentes
+decisiones de diseño.
+
+#### 2. Cread un *script* de análisis de la calidad del *software*
+
+En este segundo paso, aprended a manejar Codee y ejecutadlo contra
+[MbedTLS](https://github.com/Mbed-TLS/mbedtls). Echadle un ojo a
+esta
+[guía rápida](https://www.codee.com/wp-content/uploads/2023/02/Codee-Quickstart-CMake.pdf)
+de Codee y entended como la herramienta se integra con distintos
+sistemas de *build* —CMake o GNU Make + Bear— para automatizar el
+análisis de proyectos con cientos de archivos de código fuente.
+
+Una vez podáis ejecutar Codee contra MbedTLS, cread un *script* que
+automatice su ejecución y resuma e interprete, en formato HTML, las
+métricas de rendimiento y calidad obtenidas. Por ejemplo, podéis generar
+un informe que muestre en un gráfico circular la cantidad y el tipo de
+*checks* reportados por Codee. O por ejemplo, podéis situar los archivos
+del proyecto en una matriz de dos dimensiones y generar un mapa de calor
+que muestre que archivos disparan más *checks* de Codee. Este es el paso
+donde os pedimos que seáis creativos. ¡Sorprendednos con vuestras
+gráficas y distintas formas de visualizar los resultados que reporta
+Codee!
+
+De nuevo, no os olvidéis de documentar y publicar todo vuestro progreso.
+Documentad cómo se ejecuta vuestro *script* y cuáles son sus
+dependencias, capacidades, limitaciones u otros.
+
+#### 3. Juntadlo todo bajo el mismo repositorio
+
+En este último paso, consolidad todo en un repositorio que incluya tanto
+vuestro sistema de CI como el *script* de análisis de calidad del
+*software* que habéis creado. Aseguraos de integrar también el proyecto
+MbedTLS en vuestro repositorio.
+
+Configurad el sistema para reportar el rendimiento y la calidad
+percibida por Codee y vuestro *script* por cada *commit* que subáis,
+permitiendo que cada cambio en el código se evalúe automáticamente.
+También podeis hacer que el sistema de CI lea periódicamente el
+repositorio y ejecute los trabajos de análisis de rendimiento y calidad
+cada cierto tiempo.
+
+Ahora podréis observar que si realizáis modificaciones en vuestra copia
+local de MbedTLS siguiendo las sugerencias proporcionadas por el informe
+de Codee, el rendimiento y la calidad del código mejora con el tiempo.
+
+#### 4. Documentadlo y elegid una licencia abierta
+
+Por último, incluid instrucciones claras sobre cómo configurar y
+utilizar vuestro proyecto, así como detalles sobre el *script* de
+análisis del rendimiento y calidad del *software* y cualquier
+información relevante para otros desarrolladores. Y una vez más, añadid
+documentación con todo lo que os resulte importante destacar a la hora
+de que otros puedan valorar vuestro proyecto. Recordad elegir una
+licencia de código abierto también.
+
+### Más ideas y puntos extras
+
+Valoraremos positivamente prácticas como:
+
+1.  Mantener un historial lineal de *commits* y realizar *commits*
+    atómicos y bien documentados. Estas prácticas ayudan a facilitar la
+    revisión de los cambios y contribuyen a la calidad del código a lo
+    largo del tiempo.
+
+2.  Desarrollar diferentes y vistosas métricas que reporten el
+    rendimiento y calidad percibidos por Codee. De nuevo, sed todo lo
+    originales que podáis. HTML es vuestro lienzo en blanco y CSS y
+    JavaScript son vuestras herramientas de trabajo.
+
+3.  Permitir la descarga y publicación de artefactos generados en las
+    *builds*.
+
+4.  Usar otras herramientas de análisis estático de código (e.g.,
+    Clang-Tidy o Cppcheck).
+
+5.  Configurar un *proxy* inverso para dotar a la página de HTTPS.
+
+6.  Añadir soporte a Buildbot para enviar notificaciones o reportes por
+    *email*.
+
+7.  Integrar vuestra *pipeline* de rendimiento y calidad con GitHub,
+    GitLab o similares. Usad las APIs de *hooks* para disparar reportes
+    por cada *commit*, reportar el estado o añadir comentarios en *pull
+    requests*.
+
+## Dudas y preguntas
+
+Si tenéis alguna pregunta o necesitáis orientación durante el desarrollo
+del reto, no dudéis en poneros en contacto con nosotros. La diversidad
+de perspectivas y experiencias puede enriquecer considerablemente
+vuestro proyecto.
+
+¡Esperamos ver vuestros increíbles proyectos!
